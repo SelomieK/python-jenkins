@@ -1,7 +1,7 @@
 import os
 import sys
 import unittest
-import HtmlTestRunner
+
 
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
@@ -101,4 +101,4 @@ class TestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='..\\reports'))
+    unittest.main()
