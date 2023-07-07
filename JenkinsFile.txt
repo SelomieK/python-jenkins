@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Chekout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SelomieK/python-jenkins.git']])
+            }
+        }
+        stage('Run') {
+            steps {
+                git 'https://github.com/SelomieK/python-jenkins.git'
+                sh 'python3 src/various_methods.py'
+            }
+        }
+        stage('Test') {
+            steps{
+                sh 'python3 -m pytest Tests/TestCases.py'
+            }
+        }
+    }
+}
